@@ -6,10 +6,14 @@ import { UserLogicService } from './user-logic-service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users-list/users-list.component';
 import { ScrollDir } from './../../directives/scrolldir.directive';
+import { AgGridModule } from 'ag-grid-angular';
+
+
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
     ],
   declarations: [LoginComponent,RegisterComponent, UsersListComponent, ScrollDir
   ],

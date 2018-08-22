@@ -7,6 +7,13 @@
     background:green;
 }
 .search-results {
-    height: 300px;
+    height: 600px;
     overflow-y: scroll;
+    width:30%;
+    float: left;
+  }
+
+  .ag-holder{
+      width:70%;
+      float:left;
   }

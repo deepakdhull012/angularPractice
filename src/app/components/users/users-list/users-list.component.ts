@@ -11,6 +11,7 @@ import { ScrollDir } from './../../../directives/scrolldir.directive'
 export class UsersListComponent implements OnInit {
   users = [];
   selectedUser = <any>{};
+  columnDefs = [];
 
   constructor(
     private userLogicService : UserLogicService,
@@ -19,19 +20,14 @@ export class UsersListComponent implements OnInit {
     _store.select('reducer').subscribe(newState =>{
       console.log(newState)
       this.users = newState.users;
-      // if(newState.selectedUserReducer)
-      // {
-      //   let ul = this.users.filter((user)=>{
-      //     if(user._id == newState.selectedUserReducer._id){
-      //       user.active = true;
-      //     }
-      //     else{
-      //       user.active = false;
-      //     }
-      //   });
-        
-      // }
     })
+
+    this.columnDefs = [
+      {headerName: 'Name', field: 'userName' },
+      {headerName: 'Email', field: 'email' },
+      {headerName: 'Mobile', field: 'mobile'},
+      {headerName: 'Password', field: 'password'}
+  ];
           
     }
     

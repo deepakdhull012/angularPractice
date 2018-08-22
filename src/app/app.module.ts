@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/reducer';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +25,7 @@ import { reducer } from './redux/reducer';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({reducer}),
-    
+    StoreModule.forRoot({reducer})
 
   ],
   providers: [
