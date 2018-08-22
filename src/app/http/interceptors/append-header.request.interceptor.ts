@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class AppendHeaderRequestInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('setting headers')
         let potentiallyClonedRequest = req;
         let url = req.url;
         let headers = new HttpHeaders();

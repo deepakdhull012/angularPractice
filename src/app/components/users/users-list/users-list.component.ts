@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLogicService } from './../user-logic-service';
 import { Store } from '@ngrx/store';
+import { ScrollDir } from './../../../directives/scrolldir.directive'
 
 @Component({
   selector: 'app-users-list',
@@ -16,19 +17,20 @@ export class UsersListComponent implements OnInit {
     private _store: Store<any>
   ) { 
     _store.select('reducer').subscribe(newState =>{
+      console.log(newState)
       this.users = newState.users;
-      if(newState.selectedUserReducer)
-      {
-        let ul = this.users.filter((user)=>{
-          if(user._id == newState.selectedUserReducer._id){
-            user.active = true;
-          }
-          else{
-            user.active = false;
-          }
-        });
+      // if(newState.selectedUserReducer)
+      // {
+      //   let ul = this.users.filter((user)=>{
+      //     if(user._id == newState.selectedUserReducer._id){
+      //       user.active = true;
+      //     }
+      //     else{
+      //       user.active = false;
+      //     }
+      //   });
         
-      }
+      // }
     })
           
     }
@@ -36,7 +38,11 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {
     this.userLogicService.GetUsers().then((data)=>{
-      this.users = data;
+      this._store.dispatch({
+        type: 'FETCH_USERS',
+        payload: data
+      });
+      
     })
   }
 
@@ -54,6 +60,10 @@ export class UsersListComponent implements OnInit {
       });
     }
     
+  }
+
+  onScroll() {
+    console.log('scrolled!!');
   }
 
 }

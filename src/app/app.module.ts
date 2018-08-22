@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { AppendHeaderRequestInterceptor } from './http/interceptors/append-header.request.interceptor'
+import { AppendHeaderRequestInterceptor } from './http/interceptors/append-header.request.interceptor';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './components/core/core.module';
@@ -12,9 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/reducer';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -23,11 +26,14 @@ import { reducer } from './redux/reducer';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({reducer})
+    StoreModule.forRoot({reducer}),
+    
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppendHeaderRequestInterceptor, multi: true }
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

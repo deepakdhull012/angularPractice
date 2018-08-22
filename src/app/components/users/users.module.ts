@@ -5,13 +5,14 @@ import { RegisterComponent } from './register/register.component';
 import { UserLogicService } from './user-logic-service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { ScrollDir } from './../../directives/scrolldir.directive';
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule
+    ],
+  declarations: [LoginComponent,RegisterComponent, UsersListComponent, ScrollDir
   ],
-  declarations: [LoginComponent,RegisterComponent, UsersListComponent],
   exports : [LoginComponent,RegisterComponent,UsersListComponent],
   providers: [UserLogicService]
 })

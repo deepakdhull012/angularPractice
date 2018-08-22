@@ -7,7 +7,11 @@ const selectedUser = {};
 export const users = (state = initialUsers, action) => {
     switch (action.type) {
         case 'ADD_USER':{
-          return [...state, action.payload];
+          return Object.assign([],[...state.slice(),action.payload])
+        }
+        case 'FETCH_USERS':{
+          console.log(state.length,action.payload.length)
+          return Object.assign([],[...state,...(action.payload)])
         }       
         default:
           return state;
@@ -15,6 +19,7 @@ export const users = (state = initialUsers, action) => {
 }
 
 export const selectedUserReducer = (state = selectedUser, action) => {
+
     switch (action.type) {
         case 'USER_SELECTED':{
             return Object.assign({},state,action.payload)

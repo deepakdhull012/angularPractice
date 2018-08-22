@@ -6,3 +6,7 @@
 .user.active{
     background:green;
 }
+.search-results {
+    height: 300px;
+    overflow-y: scroll;
+  }
