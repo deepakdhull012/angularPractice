@@ -1,0 +1,7 @@
+<div class="user-list-holder">
+  <div class="user" [ngClass]="{'active':user.active}" *ngFor="let user of users" (click)="userSelected(user)">
+    <div>{{user.userName}}</div>
+    <div>{{user.email}}</div>
+    <div>{{user.mobile}}</div>
+  </div>
+</div>
