@@ -18,6 +18,6 @@ import { AgGridModule } from 'ag-grid-angular';
   declarations: [LoginComponent,RegisterComponent, UsersListComponent, ScrollDir
   ],
   exports : [LoginComponent,RegisterComponent,UsersListComponent],
-  providers: [UserLogicService]
+  providers: []
 })
 export class UsersModule { }

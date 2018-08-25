@@ -1,53 +1,55 @@
 <div class="ui-g">
+    <h2>Register</h2>
   <div class="ui-g-12">
-    <form class="ui-g-left-offset-1 ui-g-right-offset-1" name="registerForm" id="registerForm" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)"
+    <form class="ui-g-left-offset-1 ui-g-right-offset-1" name="registerForm" id="registerForm" [formGroup]="userForm" (ngSubmit)="onSubmit()"
       autocomplete="off">
       <div class="ui-g">
-        <div class="ui-g-12">
-          <div class="ui-g">
-            <label class="ui-g-6" for="userName" class="required">Enter First Name: </label>
-            <input class="ui-g-6" type="text" id="userName" formControlName="userName" placeholder="First Name goes here.." [maxlength]="50"
+        <div class="ui-g-6">
+          <label for="userName" class="required">
+            <div>User Name:</div>
+            <input type="text" id="userName" formControlName="userName" placeholder="First Name goes here.." [maxlength]="50" />
+            <span class="err" *ngIf="!userForm.get('userName').valid&&userForm.get('userName').touched" class="error-msg">Invalid First name..</span>
+          </label>
+        </div>
+        <div class="ui-g-6">
+          <label for="email" class="required">
+            <div>Enter Email:</div>
+            <input type="text" id="email" formControlName="email" placeholder="Email goes here.." [maxlength]="50" />
+            <span class="err" *ngIf="!userForm.get('email').valid && userForm.get('email').touched" class="error-msg">Invalid email..</span>
+          </label>
+        </div>
+        <div class="ui-g-6">
+          <label for="mobile" class="required">
+            <div>Enter Mobile:</div>
+            <input type="text" id="mobile" formControlName="mobile" placeholder="Mobile goes here.." [maxlength]="50" />
+          </label>
+          <span class="err" *ngIf="!userForm.get('mobile').valid && userForm.get('mobile').touched" class="error-msg">Invalid mobile..</span>
+        </div>
+        <div class="ui-g-6">
+          <label for="password" class="required">
+            <div>Enter Password: </div>
+            <input type="password" id="password" formControlName="password" placeholder="password goes here.." [maxlength]="50" />
+            <span class="err" *ngIf="!userForm.get('password').valid && userForm.get('password').touched" class="error-msg">Invalid password</span>
+          </label>
+        </div>
+        <div class="ui-g-6">
+          <label for="confirmPassword" class="required">
+            <div>Confirm Password</div>
+            <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password.." [maxlength]="50"
             />
-            <span *ngIf="!userForm.get('userName').valid&&userForm.get('userName').touched" class="error-msg">Invalid First name..</span>
-          </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g">
-            <label class="ui-g-6" for="email" class="required">Enter Email: </label>
-            <input class="ui-g-6" type="text" id="email" formControlName="email" placeholder="Email goes here.." [maxlength]="50" />
-            <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched" class="error-msg">Invalid email..</span>
-          </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g">
-            <label class="ui-g-6" for="mobile" class="required">Enter Mobile: </label>
-            <input class="ui-g-6" type="text" id="mobile" formControlName="mobile" placeholder="Mobile goes here.." [maxlength]="50"
-            />
-            <span *ngIf="!userForm.get('mobile').valid && userForm.get('mobile').touched" class="error-msg">Invalid mobile..</span>
-          </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g">
-            <label class="ui-g-6" for="lastName" class="required">Enter Password: </label>
-            <input class="ui-g-6" type="password" id="password" formControlName="password" placeholder="password goes here.." [maxlength]="50"
-            />
-            <span *ngIf="!userForm.get('password').valid && userForm.get('password').touched" class="error-msg">Invalid password</span>
-          </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g">
-            <label class="ui-g-6" for="confirmPassword" class="required">Enter Last Name: </label>
-            <input class="ui-g-6" type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password.."
-              [maxlength]="50" />
-            <span *ngIf="! (userForm.get('confirmPassword').value ==  userForm.get('password').value) && userForm.get('confirmPassword').touched"
+            <span class="err" *ngIf="!(userForm.get('confirmPassword').valid && userForm.get('confirmPassword').value ==  userForm.get('password').value) && userForm.get('confirmPassword').touched"
               class="error-msg">Passwords do not match..</span>
-          </div>
+          </label>
         </div>
-        <div class="buttongrp">
-          <button id="saveButton" type="submit">Submit</button>
-          <button id="cancelButton" type="button" (click)="0">Cancel</button>
+        <div class="ui-g-12 buttongrp">
+          <div class="ui-g">
+            <button class="ui-g-2 ui-g-right-offset-4" id="saveButton" type="submit">Submit</button>
+            <button class="ui-g-2 ui-g-right-offset-4" id="cancelButton" type="button" (click)="0">Cancel</button>
+          </div>
         </div>
       </div>
     </form>
   </div>
+  <img src="./../../../../assets/images/loading.gif" width="230" height="205" class="register-loader" *ngIf="loading">
+
 </div>

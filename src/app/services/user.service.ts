@@ -15,9 +15,13 @@ export class UserService{
     public registerUser(userData:any): Promise<any> {
         return this.http.post(`${this.server}users/normal/`,userData).toPromise();
       }
-    
+
       public getUsers(): Promise<any> {
         return this.http.get(`${this.server}users/`).toPromise();
+      }
+
+      public login(userData:any) : Promise<any>{
+        return this.http.post(`${this.server}login/`,userData).toPromise();
       }
 
 }

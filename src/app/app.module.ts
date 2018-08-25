@@ -12,10 +12,16 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/reducer';
+import { QuestionListComponent } from './components/questions/question-list/question-list.component';
+import { AddQuestionComponent } from './components/questions/add-question/add-question.component';
+import { QuestionDetailComponent } from './components/questions/question-detail/question-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    QuestionListComponent,
+    AddQuestionComponent,
+    QuestionDetailComponent,
     
   ],
   imports: [

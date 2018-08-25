@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="ui-g">
+  <h2>Login</h2>
+    <div class="ui-g-12">
+      <form class="ui-g-left-offset-1 ui-g-right-offset-1" name="loginForm" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)"
+        autocomplete="off">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <label for="email" class="required">
+              <div>Enter Email:</div>
+              <input type="text" id="loginEmail" formControlName="email" placeholder="Email goes here.." [maxlength]="50" />
+              <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="error-msg">Invalid email..</span>
+            </label>
+          </div>
+          <div class="ui-g-12">
+            <label for="password" class="required">
+              <div>Enter Password: </div>
+              <input type="password" id="loginPassword" formControlName="password" placeholder="password goes here.." [maxlength]="50" />
+              <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="error-msg">Invalid password</span>
+            </label>
+          </div>
+          <div class="ui-g-12 buttongrp">
+            <div class="ui-g">
+              <button class="ui-g-2 ui-g-right-offset-4" id="loginButton" type="submit">Login</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <img src="./../../../../assets/images/loading.gif" width="230" height="205" class="login-loader" *ngIf="loading">
+  </div>

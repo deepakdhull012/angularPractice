@@ -19,4 +19,8 @@ export class UserLogicService{
         return this.userService.getUsers();
       }
 
+      LoginUser(userData:any){
+        return this.userService.login(userData);
+      }
+
 }

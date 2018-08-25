@@ -1,4 +1,8 @@
 .footer{
     position: fixed;
     bottom: 0;
+    background: #676767;
+    padding: 5px 0;
+    width:98.5%;
+    margin-bottom: 0;
 }

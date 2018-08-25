@@ -1,3 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ag-grid/dist/styles/ag-grid.css";
 @import "~ag-grid/dist/styles/ag-theme-balham.css";
+
+input{
+  padding: 5px 8px;
+}
+body{
+  margin:0;
+}
+
+button{
+  background: rgb(9, 224, 188);
+}
+
+.error-msg{
+  color:red;
+}
+.clearfix{
+  clear: both;
+}

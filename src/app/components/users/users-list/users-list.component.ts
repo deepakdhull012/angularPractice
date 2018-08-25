@@ -16,7 +16,7 @@ export class UsersListComponent implements OnInit {
   constructor(
     private userLogicService : UserLogicService,
     private _store: Store<any>
-  ) { 
+  ) {
     _store.select('reducer').subscribe(newState =>{
       console.log(newState)
       this.users = newState.users;
@@ -28,18 +28,20 @@ export class UsersListComponent implements OnInit {
       {headerName: 'Mobile', field: 'mobile'},
       {headerName: 'Password', field: 'password'}
   ];
-          
+
     }
-    
+
 
   ngOnInit() {
-    this.userLogicService.GetUsers().then((data)=>{
-      this._store.dispatch({
-        type: 'FETCH_USERS',
-        payload: data
-      });
-      
-    })
+    if(this.users.length == 0){
+      this.userLogicService.GetUsers().then((data)=>{
+        this._store.dispatch({
+          type: 'FETCH_USERS',
+          payload: data
+        });
+
+      })
+    }
   }
 
   userSelected(user){
@@ -55,7 +57,7 @@ export class UsersListComponent implements OnInit {
         payload: user
       });
     }
-    
+
   }
 
   onScroll() {
