@@ -6,29 +6,23 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './components/core/core.module';
-import { UsersModule } from './components/users/users.module'
+import { UsersModule } from './components/users/users.module';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './redux/reducer';
-import { QuestionListComponent } from './components/questions/question-list/question-list.component';
-import { AddQuestionComponent } from './components/questions/add-question/add-question.component';
-import { QuestionDetailComponent } from './components/questions/question-detail/question-detail.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    QuestionListComponent,
-    AddQuestionComponent,
-    QuestionDetailComponent,
-    
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     CoreModule,
     UsersModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({reducer})
