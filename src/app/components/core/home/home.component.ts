@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router:ActivatedRoute
   ) {
-    console.log(this.router.data)
+
    }
 
   ngOnInit() {

@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
-import { CanActivate,ActivatedRouteSnapshot,RouterStateSnapshot, Router } from '@angular/router';
+import {  CanLoad, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate{
+export class LoadGuardService implements CanLoad{
   constructor(
     private router: Router
   ){
 
   }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean{
+
+  canLoad(route:Route){
+    console.log('load guard gets called');
     if(localStorage.getItem("currentUser") !== "null"){
       return true;
     }
     this.router.navigate(['./login']);
     return false;
   }
-
 }

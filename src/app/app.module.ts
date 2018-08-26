@@ -31,7 +31,7 @@ import { reducer } from './redux/reducer';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppendHeaderRequestInterceptor, multi: true }
   ],
-  exports: [],
+  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
